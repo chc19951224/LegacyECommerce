@@ -5,26 +5,37 @@ namespace LegacyECommerce.Web
 {
     public class BundleConfig
     {
-        // 有关捆绑的详细信息，请访问 https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+            #region 【 脚 本 文 件 捆 綁 】
+            ///【 前 端 主 題 】
+            bundles.Add(new ScriptBundle("~/bundles/frontend/js").Include(
+                        "~/Scripts/Frontend/plugins.js",
+                        "~/Scripts/Frontend/SmoothScroll.js",
+                        "~/Scripts/Frontend/script.min.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
+            bundles.Add(new ScriptBundle("~/bundles/support/modernizr").Include(
+                        "~/Scripts/Frontend/modernizr-*"));
 
-            // 使用要用于开发和学习的 Modernizr 的开发版本。然后，当你做好
-            // 生产准备就绪，请使用 https://modernizr.com 上的生成工具仅选择所需的测试。
-            bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
+            bundles.Add(new Bundle("~/bundles/frontend/support/jquery").Include(
+                      "~/Scripts/Frontend/jquery.min.js"));
 
-            bundles.Add(new Bundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js"));
+            bundles.Add(new Bundle("~/bundles/frontend/support/bootstrap").Include(
+                      "~/Scripts/Frontend/bootstrap.bundle.min.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+            bundles.Add(new Bundle("~/bundles/frontend/support/swiper").Include(
+                      "~/Scripts/Frontend/swiper-bundle.min.js"));
+            #endregion
+
+            #region 【 樣 式 文 件 捆 綁 】
+            ///【 前 端 主 題 】
+            bundles.Add(new StyleBundle("~/bundles/frontend/css").Include(
+                        "~/Content/Frontend/bootstrap.min.css",
+                        "~/Content/Frontend/vendor.css",
+                        "~/Content/Frontend/swiper-bundle.min.css",
+                        "~/Content/Frontend/style.css",
+                        "~/Content/Frontend/fonts.googleapis.com.css"));
+            #endregion
         }
     }
 }

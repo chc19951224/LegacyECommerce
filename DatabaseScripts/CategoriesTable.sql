@@ -1,0 +1,11 @@
+USE LegacyEcommerce;
+GO
+
+CREATE TABLE Categories(
+	Id INT IDENTITY(1,1) PRIMARY KEY,
+	Name NVARCHAR(20) NOT NULL,
+	ImageUrl NVARCHAR(100),
+	Description NVARCHAR(100),
+	Popular BIT DEFAULT 0
+);
+GO

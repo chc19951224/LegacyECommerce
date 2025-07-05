@@ -18,7 +18,7 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44391</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -120,49 +120,132 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\FrontendController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-grid.css" />
-    <Content Include="Content\bootstrap-grid.min.css" />
-    <Content Include="Content\bootstrap-grid.rtl.css" />
-    <Content Include="Content\bootstrap-grid.rtl.min.css" />
-    <Content Include="Content\bootstrap-reboot.css" />
-    <Content Include="Content\bootstrap-reboot.min.css" />
-    <Content Include="Content\bootstrap-reboot.rtl.css" />
-    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
-    <Content Include="Content\bootstrap-utilities.css" />
-    <Content Include="Content\bootstrap-utilities.min.css" />
-    <Content Include="Content\bootstrap-utilities.rtl.css" />
-    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\bootstrap.rtl.css" />
-    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Default\bootstrap-grid.css" />
+    <Content Include="Content\Default\bootstrap-grid.min.css" />
+    <Content Include="Content\Default\bootstrap-grid.rtl.css" />
+    <Content Include="Content\Default\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\Default\bootstrap-reboot.css" />
+    <Content Include="Content\Default\bootstrap-reboot.min.css" />
+    <Content Include="Content\Default\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\Default\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\Default\bootstrap-utilities.css" />
+    <Content Include="Content\Default\bootstrap-utilities.min.css" />
+    <Content Include="Content\Default\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\Default\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\Default\bootstrap.css" />
+    <Content Include="Content\Default\bootstrap.min.css" />
+    <Content Include="Content\Default\bootstrap.rtl.css" />
+    <Content Include="Content\Default\bootstrap.rtl.min.css" />
+    <Content Include="Content\Frontend\bootstrap.min.css" />
+    <Content Include="Content\Frontend\fonts.googleapis.com.css" />
+    <Content Include="Content\Frontend\style.css" />
+    <Content Include="Content\Frontend\swiper-bundle.min.css" />
+    <Content Include="Content\Frontend\vendor.css" />
+    <Content Include="Content\Images\Frontend\arct-icon.png" />
+    <Content Include="Content\Images\Frontend\banner-image-1.jpg" />
+    <Content Include="Content\Images\Frontend\banner-image-2.jpg" />
+    <Content Include="Content\Images\Frontend\banner-image-3.jpg" />
+    <Content Include="Content\Images\Frontend\banner-image-4.jpg" />
+    <Content Include="Content\Images\Frontend\banner-image-5.jpg" />
+    <Content Include="Content\Images\Frontend\banner-image-6.jpg" />
+    <Content Include="Content\Images\Frontend\bg-newsletter.jpg" />
+    <Content Include="Content\Images\Frontend\cat-item1.jpg" />
+    <Content Include="Content\Images\Frontend\cat-item2.jpg" />
+    <Content Include="Content\Images\Frontend\cat-item3.jpg" />
+    <Content Include="Content\Images\Frontend\cat-large-item1.jpg" />
+    <Content Include="Content\Images\Frontend\cat-large-item2.jpg" />
+    <Content Include="Content\Images\Frontend\cat-large-item3.jpg" />
+    <Content Include="Content\Images\Frontend\cat-sm-item.jpg" />
+    <Content Include="Content\Images\Frontend\cat-sm-item2.jpg" />
+    <Content Include="Content\Images\Frontend\cat-sm-item3.jpg" />
+    <Content Include="Content\Images\Frontend\collection-banner.jpg" />
+    <Content Include="Content\Images\Frontend\dhl-logo.png" />
+    <Content Include="Content\Images\Frontend\insta-item1.jpg" />
+    <Content Include="Content\Images\Frontend\insta-item2.jpg" />
+    <Content Include="Content\Images\Frontend\insta-item3.jpg" />
+    <Content Include="Content\Images\Frontend\insta-item4.jpg" />
+    <Content Include="Content\Images\Frontend\insta-item5.jpg" />
+    <Content Include="Content\Images\Frontend\insta-item6.jpg" />
+    <Content Include="Content\Images\Frontend\light-logo.png" />
+    <Content Include="Content\Images\Frontend\logo.svg" />
+    <Content Include="Content\Images\Frontend\logo1.png" />
+    <Content Include="Content\Images\Frontend\logo2.png" />
+    <Content Include="Content\Images\Frontend\logo3.png" />
+    <Content Include="Content\Images\Frontend\logo4.png" />
+    <Content Include="Content\Images\Frontend\logo5.png" />
+    <Content Include="Content\Images\Frontend\main-logo.png" />
+    <Content Include="Content\Images\Frontend\master-card.png" />
+    <Content Include="Content\Images\Frontend\newsletter-image.jpg" />
+    <Content Include="Content\Images\Frontend\pattern-bg.png" />
+    <Content Include="Content\Images\Frontend\paypal-card.png" />
+    <Content Include="Content\Images\Frontend\post-image1.jpg" />
+    <Content Include="Content\Images\Frontend\post-image2.jpg" />
+    <Content Include="Content\Images\Frontend\post-image3.jpg" />
+    <Content Include="Content\Images\Frontend\post-image4.jpg" />
+    <Content Include="Content\Images\Frontend\post-image5.jpg" />
+    <Content Include="Content\Images\Frontend\post-image6.jpg" />
+    <Content Include="Content\Images\Frontend\post-image7.jpg" />
+    <Content Include="Content\Images\Frontend\post-image8.jpg" />
+    <Content Include="Content\Images\Frontend\post-image9.jpg" />
+    <Content Include="Content\Images\Frontend\post-large-image1.jpg" />
+    <Content Include="Content\Images\Frontend\post-large-image2.jpg" />
+    <Content Include="Content\Images\Frontend\post-large-image3.jpg" />
+    <Content Include="Content\Images\Frontend\post-large-image4.jpg" />
+    <Content Include="Content\Images\Frontend\post-small-image1.jpg" />
+    <Content Include="Content\Images\Frontend\post-small-image2.jpg" />
+    <Content Include="Content\Images\Frontend\post-small-image3.jpg" />
+    <Content Include="Content\Images\Frontend\product-item-1.jpg" />
+    <Content Include="Content\Images\Frontend\product-item-10.jpg" />
+    <Content Include="Content\Images\Frontend\product-item-2.jpg" />
+    <Content Include="Content\Images\Frontend\product-item-3.jpg" />
+    <Content Include="Content\Images\Frontend\product-item-4.jpg" />
+    <Content Include="Content\Images\Frontend\product-item-5.jpg" />
+    <Content Include="Content\Images\Frontend\product-item-6.jpg" />
+    <Content Include="Content\Images\Frontend\product-item-7.jpg" />
+    <Content Include="Content\Images\Frontend\product-item-8.jpg" />
+    <Content Include="Content\Images\Frontend\product-item-9.jpg" />
+    <Content Include="Content\Images\Frontend\single-image-2.jpg" />
+    <Content Include="Content\Images\Frontend\text-pattern.png" />
+    <Content Include="Content\Images\Frontend\video-image-2.jpg" />
+    <Content Include="Content\Images\Frontend\video-image.jpg" />
+    <Content Include="Content\Images\Frontend\visa-card.png" />
+    <Content Include="Content\Images\Frontend\wishlist-item1.jpg" />
+    <Content Include="Content\Images\Frontend\wishlist-item2.jpg" />
+    <Content Include="Content\Images\Frontend\wishlist-item3.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
-    <Content Include="Scripts\bootstrap.bundle.js" />
-    <Content Include="Scripts\bootstrap.bundle.min.js" />
-    <Content Include="Scripts\bootstrap.esm.js" />
-    <Content Include="Scripts\bootstrap.esm.min.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <None Include="Scripts\jquery-3.7.0.intellisense.js" />
-    <Content Include="Scripts\jquery-3.7.0.js" />
-    <Content Include="Scripts\jquery-3.7.0.min.js" />
-    <Content Include="Scripts\jquery-3.7.0.slim.js" />
-    <Content Include="Scripts\jquery-3.7.0.slim.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Content\Default\Site.css" />
+    <Content Include="Scripts\Default\bootstrap.bundle.js" />
+    <Content Include="Scripts\Default\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\Default\bootstrap.esm.js" />
+    <Content Include="Scripts\Default\bootstrap.esm.min.js" />
+    <Content Include="Scripts\Default\bootstrap.js" />
+    <Content Include="Scripts\Default\bootstrap.min.js" />
+    <None Include="Scripts\Default\jquery-3.7.0.intellisense.js" />
+    <Content Include="Scripts\Default\jquery-3.7.0.js" />
+    <Content Include="Scripts\Default\jquery-3.7.0.min.js" />
+    <Content Include="Scripts\Default\jquery-3.7.0.slim.js" />
+    <Content Include="Scripts\Default\jquery-3.7.0.slim.min.js" />
+    <None Include="Scripts\Default\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\Default\jquery.validate.js" />
+    <Content Include="Scripts\Default\jquery.validate.min.js" />
+    <Content Include="Scripts\Default\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\Default\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Default\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Frontend\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\Frontend\jquery.min.js" />
+    <Content Include="Scripts\Frontend\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Frontend\plugins.js" />
+    <Content Include="Scripts\Frontend\script.min.js" />
+    <Content Include="Scripts\Frontend\SmoothScroll.js" />
+    <Content Include="Scripts\Frontend\swiper-bundle.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -172,42 +255,41 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Frontend\Partial\_Main.cshtml" />
+    <Content Include="Views\Frontend\Partial\_Header.cshtml" />
+    <Content Include="Views\Frontend\Partial\_Subscription.cshtml" />
+    <Content Include="Views\Frontend\Partial\_Footer.cshtml" />
+    <Content Include="Views\Frontend\Home.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.rtl.min.css.map" />
-    <Content Include="Content\bootstrap.rtl.css.map" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
-    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
-    <Content Include="Content\bootstrap-utilities.min.css.map" />
-    <Content Include="Content\bootstrap-utilities.css.map" />
-    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
-    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
-    <Content Include="Content\bootstrap-reboot.min.css.map" />
-    <Content Include="Content\bootstrap-reboot.css.map" />
-    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
-    <Content Include="Content\bootstrap-grid.rtl.css.map" />
-    <Content Include="Content\bootstrap-grid.min.css.map" />
-    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Content\Default\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\Default\bootstrap.rtl.css.map" />
+    <Content Include="Content\Default\bootstrap.min.css.map" />
+    <Content Include="Content\Default\bootstrap.css.map" />
+    <Content Include="Content\Default\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\Default\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\Default\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\Default\bootstrap-utilities.css.map" />
+    <Content Include="Content\Default\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\Default\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\Default\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\Default\bootstrap-reboot.css.map" />
+    <Content Include="Content\Default\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\Default\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\Default\bootstrap-grid.min.css.map" />
+    <Content Include="Content\Default\bootstrap-grid.css.map" />
     <None Include="packages.config" />
-    <Content Include="Scripts\bootstrap.min.js.map" />
-    <Content Include="Scripts\bootstrap.js.map" />
-    <Content Include="Scripts\bootstrap.esm.min.js.map" />
-    <Content Include="Scripts\bootstrap.esm.js.map" />
-    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
-    <Content Include="Scripts\bootstrap.bundle.js.map" />
-    <Content Include="Scripts\jquery-3.7.0.slim.min.map" />
-    <Content Include="Scripts\jquery-3.7.0.min.map" />
+    <Content Include="Scripts\Default\bootstrap.min.js.map" />
+    <Content Include="Scripts\Default\bootstrap.js.map" />
+    <Content Include="Scripts\Default\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\Default\bootstrap.esm.js.map" />
+    <Content Include="Scripts\Default\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\Default\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\Default\jquery-3.7.0.slim.min.map" />
+    <Content Include="Scripts\Default\jquery-3.7.0.min.map" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -227,7 +309,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>62045</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:61814/</IISUrl>
+          <IISUrl>https://localhost:44391/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
