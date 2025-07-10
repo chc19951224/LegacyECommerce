@@ -1,0 +1,231 @@
+.search-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+    .search-group .form-control {
+        flex: 5;
+        border: 2px solid #ced4da;
+        transition: box-shadow 0.3s ease;
+        font-size: 18px;
+        height: 48px;
+    }
+
+        .search-group .form-control:focus {
+            box-shadow: 0 0 8px rgba(0, 123, 255, 0.7);
+            border-color: #80bdff;
+        }
+
+    .search-group .btn-search {
+        flex: 1;
+        margin-left: 8px;
+        background: linear-gradient(45deg, #1d976c, #93f9b9);
+        color: white;
+        font-size: 17px;
+    }
+
+    .search-group .btn-reset {
+        flex: 1;
+        margin-left: 8px;
+        background: linear-gradient(45deg, #ff512f, #dd2476);
+        color: white;
+        font-size: 17px;
+    }
+
+    .search-group .btn-add {
+        flex: 3;
+        margin-left: 8px;
+        background: linear-gradient(45deg, #4facfe, #00f2fe);
+        color: white;
+        font-size: 17px;
+    }
+
+.table {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+    .table th, .table td {
+        text-align: center;
+        vertical-align: middle !important;
+        padding: 14px 12px;
+    }
+
+    .table thead {
+        background-color: #343a40;
+        color: #fff;
+    }
+
+    .table tbody tr:hover {
+        background-color: #f1f3f5;
+        cursor: pointer;
+    }
+
+    .table tbody tr.selected {
+        background-color: #d1ecf1;
+    }
+
+.category-img {
+    max-width: 120px;
+    max-height: 120px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+    .category-img:hover {
+        transform: scale(1.08);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+.modal-image {
+    width: 600px; /* 固定寬度 */
+    height: 400px; /* 固定高度 */
+    object-fit: cover; /* 裁切並填滿 */
+    border: 8px solid #fff;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+}
+
+.btn-edit, .btn-delete {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 90px;
+    min-height: 40px;
+    font-size: 16px;
+}
+
+.btn-edit {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    margin-right: 6px;
+}
+
+.btn-delete {
+    background: linear-gradient(45deg, #f7971e, #ffd200);
+    color: white;
+}
+
+.badge {
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+.table-footer {
+    padding: 10px 0;
+    border-top: 1px solid #e9ecef;
+    font-size: 16px;
+}
+
+.record-info {
+    font-size: 16px;
+    color: #555;
+}
+
+.page-size-select {
+    font-size: 15px;
+}
+
+.pagination {
+    justify-content: center;
+}
+
+    .pagination .page-link {
+        font-size: 17px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        padding: 0;
+        margin: 0 4px;
+        border-radius: 8px;
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        color: #495057;
+        text-align: center;
+        transition: all 0.2s ease-in-out;
+    }
+
+        .pagination .page-link:hover {
+            background-color: #e9ecef;
+            color: #ff416c;
+            border-color: #ff416c;
+        }
+
+    .pagination .page-item.active .page-link {
+        background: linear-gradient(45deg, #ff416c, #ff4b2b);
+        color: white;
+        border: none;
+        border-radius: 6px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        padding: 0;
+        font-weight: bold;
+    }
+
+    .pagination .page-link i {
+        font-size: 20px;
+        vertical-align: middle;
+    }
+
+/* === 尾部功能列樣式 === */
+.table-footer {
+    border-top: 2px solid #dee2e6;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 24px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* 分頁大小選項 */
+.page-size {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: #495057;
+    background: #e9f5f1;
+    padding: 8px 16px;
+    border-radius: 12px;
+    border: 1.5px solid #ced4da;
+}
+
+    .page-size select.page-size-select {
+        border-radius: 8px;
+        padding: 6px 12px;
+        font-size: 15px;
+        font-weight: 500;
+        color: #1d976c;
+        border: 1.5px solid #1d976c;
+        background: #f0f9f4;
+        transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+        .page-size select.page-size-select:focus {
+            outline: none;
+            border-color: #17a2b8;
+            box-shadow: 0 0 6px rgba(23, 162, 184, 0.4);
+            background: #fff;
+            color: #0c5460;
+        }
+
+/* 資訊列統計數量 */
+#recordInfo {
+    font-size: 14px;
+    font-weight: 500;
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 10px;
+    padding: 10px 16px;
+    margin-left: auto;
+    margin-top: 12px;
+}

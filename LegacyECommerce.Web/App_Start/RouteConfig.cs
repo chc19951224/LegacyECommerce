@@ -11,6 +11,9 @@ namespace LegacyECommerce.Web
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+            /// Web API 的屬性路由
+            routes.MapMvcAttributeRoutes();
+
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(

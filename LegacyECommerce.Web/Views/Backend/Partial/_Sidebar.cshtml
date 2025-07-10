@@ -1,0 +1,122 @@
+﻿<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <!-- 後台首頁圖標 -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+    </a>
+
+
+    <!-- 分割綫 -->
+    <hr class="sidebar-divider my-0">
+    <!-- 標題 -->
+    <li class="nav-item active">
+        <a class="nav-link" href="#">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>控 制 面 板</span>
+        </a>
+    </li>
+
+
+    <!-- 分割綫 -->
+    <hr class="sidebar-divider">
+    <!-- 塊名稱 -->
+    <div class="sidebar-heading">
+        管 理 功 能
+    </div>
+    <!-- 下拉選單1 -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+           aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>角 色 管 理</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">選 項</h6>
+                <a class="collapse-item" href="buttons.html">角色管理</a>
+                <a class="collapse-item" href="cards.html">權限管理</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- 下拉選單2 -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+           aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-fw fa-wrench"></i>
+            <span>網 站 管 理</span>
+        </a>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+             data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">選 項</h6>
+                @Html.ActionLink("分 類 管 理", "ManageCategoryPage", "Backend", null, new { @class = "collapse-item" })
+                @Html.ActionLink("商 品 管 理", "ManageProductPage", "Backend", null, new { @class = "collapse-item" })
+                <a class="collapse-item" href="utilities-animation.html">訂單管理</a>
+                <a class="collapse-item" href="utilities-other.html">訂閲管理</a>
+            </div>
+        </div>
+    </li>
+
+
+    <!-- 分割綫 -->
+    <hr class="sidebar-divider">
+    <!-- 塊名稱 -->
+    <div class="sidebar-heading">
+        附 加 功 能
+    </div>
+    <!-- 下拉選單1 -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+           aria-expanded="true" aria-controls="collapsePages">
+            <i class="fas fa-fw fa-folder"></i>
+            <span>活 動 發 佈</span>
+        </a>
+        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">選 項</h6>
+                <a class="collapse-item" href="login.html">聯名商品</a>
+                <a class="collapse-item" href="register.html">折價活動</a>
+                <a class="collapse-item" href="forgot-password.html">優惠券</a>
+                <div class="collapse-divider"></div>
+                <h6 class="collapse-header">Other Pages:</h6>
+                <a class="collapse-item" href="404.html">404 Page</a>
+                <a class="collapse-item" href="blank.html">Blank Page</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- 下拉選單2 -->
+    <li class="nav-item">
+        <a class="nav-link" href="charts.html">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>操 作 説 明 </span>
+        </a>
+    </li>
+
+    <!-- 下拉選單3 -->
+    <li class="nav-item">
+        <a class="nav-link" href="tables.html">
+            <i class="fas fa-fw fa-table"></i>
+            <span>語 言 設 置</span>
+        </a>
+    </li>
+
+
+    <!-- 分割綫 -->
+    <hr class="sidebar-divider">
+    <!-- 側邊欄收藏按鈕 -->
+    @*<div class="text-center d-none d-md-inline">
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>*@
+    <!-- 側邊欄信息 -->
+    @*<div class="sidebar-card d-none d-lg-flex">
+            <img class="sidebar-card-illustration mb-2" src="~/Content/Images/Backend/undraw_rocket.svg" alt="...">
+            <p class="text-center mb-2">
+                <strong>想 瞭 解 更 多 關 於 系 統 的 説 明 嗎？</strong>
+            </p>
+            <a class="btn btn-success btn-sm" href="#">立 即 前 往!</a>
+        </div>*@
+</ul>

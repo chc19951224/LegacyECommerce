@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewBag.Title - 電子商務平臺</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" , shrink-to-fit=no>
+    <meta name="author" content="PradoChang">
+    <meta name="description" content="提供安全公平的交易平臺">
+
+    <!-- 【 CDN FontAwesome 】 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <!-- # region 【 引 用 CSS 樣 式 】 -->
+    @Styles.Render("~/bundles/backend/css")
+    @*@Scripts.Render("~/bundles/support/modernizr")*@
+    <!-- # endregion -->
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <!-- #region 【 後 台 側 邊 欄 】 -->
+        @Html.Partial("~/Views/Backend/Partial/_Sidebar.cshtml")
+        <!-- #endregion -->
+
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <!-- #region 【 後 台 頁 頭 】 -->
+                <header>
+                    @Html.Partial("~/Views/Backend/Partial/_Header.cshtml")
+                </header>
+                <!-- #endregion -->
+
+                <!-- #region 【 後 台 主 體 】 -->
+                <main>
+                    <div class="container body-content">
+                        @RenderBody()
+                    </div>
+                </main>
+                <!-- #endregion -->
+            </div>
+
+            <!-- #region 【 後 台 頁 尾 】 -->
+            <footer class="sticky-footer bg-white">
+                @Html.Partial("~/Views/Backend/Partial/_Footer.cshtml")
+            </footer>
+            <!-- #endregion -->
+        </div>
+    </div>
+
+    <!-- Scroll to Top Button【按鈕】-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal【登出模塊】-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">準備要離開了嗎？</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">取 消</button>
+                    @*<a class="btn btn-primary" href="login.html">登 出</a>*@
+                    @Html.ActionLink("登 出", "Home", "Frontend", null, new { @class = "btn btn-primary" })
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- #region 【 引 用 JS 脚本 】 -->
+    @Scripts.Render("~/bundles/backend/support/jquery")
+    @Scripts.Render("~/bundles/backend/support/bootstrap")
+    @Scripts.Render("~/bundles/backend/js")
+    @RenderSection("scripts", required: false)
+    <!-- #endregion -->
+</body>
+</html>
