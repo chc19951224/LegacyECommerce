@@ -1,6 +1,5 @@
 ﻿using LegacyECommerce.Domain.Entities;
 using LegacyECommerce.Domain.IRepositories;
-using LegacyECommerce.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,10 +37,17 @@ namespace LegacyECommerce.Infrastructure.Repositories
             return category;
         }
 
+        ///【 查 詢 分 類 】
+        bool ICategoryRepository.IsDuplicateName(Category category)
+        {
+            return _myDbContext.Categories.Any(c => c.Name == category.Name);
+        }
+
         ///【 新 增 分 類 】
         void ICategoryRepository.Add(Category category)
         {
-
+            category.CreateAt = DateTime.Now;
+            _myDbContext.Categories.Add(category);
         }
 
         ///【 修 改 分 類 】
@@ -54,6 +60,12 @@ namespace LegacyECommerce.Infrastructure.Repositories
         void ICategoryRepository.Delete(int id)
         {
 
+        }
+
+        ///【 提 交 操 作 】
+        void ICategoryRepository.Commit()
+        {
+            _myDbContext.SaveChanges();
         }
         #endregion
     }

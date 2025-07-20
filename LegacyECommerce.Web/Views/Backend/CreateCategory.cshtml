@@ -1,0 +1,254 @@
+﻿<!-- 引用視圖模型 -->
+
+<!-- 網站標題和引用母版 -->
+@{
+    ViewBag.Title = "新增分類";
+    Layout = "~/Views/Backend/Shared/_Main.cshtml";
+}
+
+<style>
+    .form-section {
+        padding: 2rem 2.5rem;
+    }
+
+        .form-section label {
+            font-weight: 600;
+        }
+
+    .upload-box {
+        border: 2px dashed #ced4da;
+        border-radius: 12px;
+        padding: 1.5rem;
+        text-align: center;
+        transition: border-color 0.2s ease;
+        background-color: #f8f9fa;
+    }
+
+        .upload-box:hover {
+            border-color: #6c757d;
+        }
+
+        .upload-box img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-top: 1rem;
+            display: none;
+        }
+
+    .toggle-card {
+        border: 1px solid #dee2e6;
+        border-radius: 0.5rem;
+        padding: 1rem;
+        text-align: center;
+        cursor: pointer;
+        transition: border-color 0.2s ease, background 0.2s ease;
+        flex: 1;
+        min-width: 150px;
+    }
+
+        .toggle-card.active {
+            background: #fff3cd;
+            border-color: #ffc107;
+        }
+
+        .toggle-card.inactive {
+            background: #f8f9fa;
+        }
+
+    .form-actions {
+        margin-top: 3rem;
+    }
+
+        .form-actions .btn {
+            min-width: 160px;
+        }
+
+    .popular-labels {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 20px;
+    }
+</style>
+
+<div class="container my-5">
+    <div class="card shadow rounded-4">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">
+                <i class="fa-solid fa-folder-plus me-2"></i> 添加新的分類
+            </h4>
+        </div>
+
+        <div class="form-section bg-white">
+            <form enctype="multipart/form-data" class="needs-validation" novalidate>
+                <div class="row g-4">
+                    <div class="col-lg-7">
+                        <!-- 類別名稱 -->
+                        <div class="mb-3">
+                            <label for="name" class="form-label">類別名稱 <span class="text-danger">*</span></label>
+                            <input id="name" name="Name" type="text" class="form-control" required placeholder="例如：飲料、零食、家電">
+                            <div class="form-text">將顯示於前台分類選單</div>
+                        </div>
+
+                        <!-- 類別描述 -->
+                        <div class="mb-3">
+                            <label for="description" class="form-label">類別描述 <span class="text-danger">*</span></label>
+                            <textarea id="description" name="Description" class="form-control" rows="3" required placeholder="簡要描述此分類的用途或內容"></textarea>
+                            <div class="form-text">用於後台管理與 SEO 描述</div>
+                        </div>
+
+                        <!-- 熱門選擇 -->
+                        <div class="mb-3">
+                            <label class="form-label">是否為熱門分類？</label>
+                            <div class="popular-labels">
+                                <div id="card-yes" class="toggle-card active" data-value="true">
+                                    <i class="fa-solid fa-star text-warning mb-1"></i><br />
+                                    是，顯示於首頁
+                                </div>
+                                <div id="card-no" class="toggle-card inactive" data-value="false">
+                                    <i class="fa-regular fa-star text-secondary mb-1"></i><br />
+                                    否，僅內部顯示
+                                </div>
+                            </div>
+                            <div class="form-text mt-2">熱門類別會在首頁重點推薦</div>
+                        </div>
+                    </div>
+
+                    <!-- 類別圖片 -->
+                    <div class="col-lg-5">
+                        <label class="form-label">分類圖片</label>
+                        <div class="upload-box" id="uploadBox">
+                            <!-- 提示信息 -->
+                            <label for="upload" class="upload-hint d-block">
+                                <i class="fa-solid fa-cloud-arrow-up fa-2x text-primary mb-2"></i>
+                                <div class="fw-semibold">點擊或拖曳圖片上傳</div>
+                                <div class="text-muted small">建議尺寸 800x600（JPG / PNG）</div>
+                            </label>
+
+                            <!-- 上傳文件 -->
+                            <input id="upload" name="Image" type="file" class="form-control d-none" accept=".jpg, .png">
+
+                            <!-- 預覽圖片 -->
+                            <img id="preview" src="#" alt="預覽圖片" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 提交按鈕 -->
+                <div class="form-actions text-center">
+                    <button id="confirmButton" class="btn btn-success btn-lg px-5 me-2" type="submit">
+                        <i class="fa-solid fa-circle-plus me-1"></i> 新建分類
+                    </button>
+                    <a href="@Url.Action("ManageCategory", "Backend")" class="btn btn-secondary btn-lg px-5">
+                        <i class="fa-solid fa-arrow-left me-1"></i> 返回列表
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!--【 ===== JavaScript 脚本區域 ===== 】 -->
+@section scripts{
+    <script>
+        //#region 【 ===== 全局變量 ===== 】
+        const upload = document.getElementById("upload");
+        const preview = document.getElementById("preview");
+        const confirm = document.getElementById("confirmButton");
+        //#endregion
+
+        //#region 【 ===== 熱門選項 ===== 】
+        function featuredTrigger() {
+            const cards = document.querySelectorAll(".toggle-card");
+
+            cards.forEach(card => {
+                card.addEventListener("click", function () {
+                    // 清除卡片選項的高亮顯示效果
+                    cards.forEach(c => {
+                        c.classList.remove("active");
+                        c.classList.remove("inactive");
+                    })
+
+                    // 新增卡片選項的高亮顯示效果
+                    this.classList.add("active");
+                });
+            });
+        }
+        //#endregion
+
+        //#region 【 ===== 圖片上傳 ===== 】
+        function imageTrigger() {
+            upload.addEventListener("change", function (e) {
+                ///【創建FileReader】
+                const reader = new FileReader();
+
+                ///【獲取文件】
+                const file = e.target.files[0];
+                if (!file) return;
+
+                ///【讀取后的事件】
+                reader.onload = function (e) {
+                    preview.style.display = "block";
+                    preview.src = e.target.result;
+
+                    const hint = document.querySelector(".upload-hint");
+                    if (hint) hint.remove();
+                }
+                ///【執行文件讀取】轉爲base64
+                reader.readAsDataURL(file);
+            })
+        }
+        //#endregion
+
+        //#region 【 ===== 收集表單 ===== 】
+        function collectFormData() {
+            ///【創建容器】
+            const formData = new FormData();
+
+            const name = document.getElementById("name").value;
+            const description = document.getElementById("description").value;
+            const card = document.querySelector(".toggle-card.active");
+            const featured = card?.dataset.value === "true";
+
+            ///【加入容器】
+            formData.append("name", name);
+            formData.append("description", description);
+            formData.append("featured", featured);
+            formData.append("file", upload.files[0]);
+            return formData;
+        }
+        //#endregion
+
+        //#region 【 ===== 請求函數 ===== 】
+        async function fetchFormData(formData) {
+            const response = await fetch("/CategoryApi/Create/", {
+                method: "POST",
+                body: formData
+            })
+
+            const result = await response.json();
+            if (result.Code === 200) {
+                alert(result.Message);
+                window.location.href = result.RedirectPage;
+            } else {
+                alert(result.Message);
+                window.location.href = result.RedirectPage;
+            }
+        }
+        //#endregion
+
+        //#region 【 ===== DOM 入口 ===== 】
+        document.addEventListener("DOMContentLoaded", function () {
+            imageTrigger();
+            featuredTrigger();
+
+            confirm.addEventListener("click", async function (e) {
+                e.preventDefault();
+                const formData = collectFormData();
+                await fetchFormData(formData);
+            })
+        })
+        //#endregion
+    </script>
+}

@@ -5,9 +5,10 @@ CREATE TABLE Products(
 	Id INT IDENTITY(1,1) PRIMARY KEY,
 	CategoryId INT,
 	Name NVARCHAR(20) NOT NULL,
-	ImageUrl NVARCHAR(100),
+	Image NVARCHAR(200),
 	Description NVARCHAR(100),
 	Price Decimal(10,1) NOT NULL,
-	Popular BIT DEFAULT 0
+	Featured BIT DEFAULT 0,
+	CreateAt DATETIME DEFAULT GETDATE()
 );
 GO

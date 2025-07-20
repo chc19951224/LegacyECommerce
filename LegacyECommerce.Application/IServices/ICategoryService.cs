@@ -1,4 +1,5 @@
-﻿using LegacyECommerce.Application.DTOs.Responses;
+﻿using LegacyECommerce.Application.DTOs.Requests;
+using LegacyECommerce.Application.DTOs.Responses;
 using LegacyECommerce.Shared.Results;
 using System;
 using System.Collections.Generic;
@@ -12,11 +13,10 @@ namespace LegacyECommerce.Application.IServices
     public interface ICategoryService
     {
         ///【 查 詢 方 法 】
-        Task<PagedResult<CategoryResponse>> QueryCategories(string searchKey, int pageNumber, int pageSize);
-        //PagedResponse<CategoryResponse> FindCategoryById(int id);
+        PagedResult<CategoryResponse> QueryCategories(string searchKey, int pageNumber, int pageSize);
 
         ///【 新 增 方 法 】
-        //void AddCategory(CategoryRequest tableData);
+        bool CreateCategory(CreateCategoryRequest category);
 
         /////【 修 改 方 法 】
         //void ModifyCategory(CategoryRequest tableData);

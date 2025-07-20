@@ -17,9 +17,9 @@ namespace LegacyECommerce.Application.Mappers
         {
             CategoryId = entity.Id,
             CategoryName = entity.Name,
-            CategoryImageUrl = entity.ImageUrl,
+            CategoryImage = entity.Image,
             CategoryDescription = entity.Description,
-            PopularCategory = entity.Popular
+            FeaturedCategory = entity.Featured
         };
 
         internal static Category RequestToEntity(CategoryRequest request)
@@ -28,9 +28,21 @@ namespace LegacyECommerce.Application.Mappers
             {
                 Id = request.CategoryId,
                 Name = request.CategoryName,
-                ImageUrl = request.CategoryImageUrl,
+                Image = request.CategoryImage,
                 Description = request.CategoryDescription,
-                Popular = request.PopularCategory
+                Featured = request.FeaturedCategory
+            };
+        }
+
+        internal static Category CreateToEntity(CreateCategoryRequest request)
+        {
+            return new Category
+            {
+                Id = request.Id,
+                Name = request.Name,
+                Image = request.Image,
+                Description = request.Description,
+                Featured = request.Featured
             };
         }
     }

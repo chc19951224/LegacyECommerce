@@ -327,13 +327,16 @@
     <Content Include="Views\Frontend\Partial\_Footer.cshtml" />
     <Content Include="Views\Frontend\Home.cshtml" />
     <Content Include="Views\Backend\Home.cshtml" />
-    <Content Include="Views\Backend\Partial\_Main.cshtml" />
+    <Content Include="Views\Backend\Shared\_Main.cshtml" />
     <Content Include="Views\Backend\Partial\_Header.cshtml" />
     <Content Include="Views\Backend\Partial\_Sidebar.cshtml" />
     <Content Include="Views\Backend\Partial\_Footer.cshtml" />
     <Content Include="Views\Backend\ManageCategory.cshtml" />
+    <Content Include="Views\Backend\CreateCategory.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Content\Images\Categories\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Default\bootstrap.rtl.min.css.map" />
     <Content Include="Content\Default\bootstrap.rtl.css.map" />

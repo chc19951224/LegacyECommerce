@@ -8,11 +8,19 @@ namespace LegacyECommerce.Shared.Results
 {
     public enum StatusCodes
     {
+        // 成功
         Success = 200,
+
+        // 前端錯誤
         BadRequest = 400,
+
+        // 未授權
         Unauthorized = 401,
+
+        // 空白頁
         NotFound = 404,
-        ServerError = 500,
-        ValidationFailed = 1001
+
+        // 後端錯誤
+        ServerError = 500
     }
 }

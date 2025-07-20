@@ -14,6 +14,8 @@ namespace LegacyECommerce.Domain.IRepositories
         IQueryable<Category> GetAll();
         /// 獲取指定分類
         Category GetById(int id);
+        /// 查詢重名
+        bool IsDuplicateName(Category category);
 
         /// 新增分類
         void Add(Category category);
@@ -22,6 +24,9 @@ namespace LegacyECommerce.Domain.IRepositories
         void Update(Category category);
 
         /// 刪除分類
-        void Delete(int id);                    
+        void Delete(int id);
+
+        /// 提交操作
+        void Commit();
     }
 }

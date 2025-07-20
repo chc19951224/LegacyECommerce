@@ -17,5 +17,10 @@ namespace LegacyECommerce.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult CreateCategory()
+        {
+            return View();
+        }
     }
 }

@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.ModelBinding;
 
 namespace LegacyECommerce.Application.Services
 {
@@ -29,11 +30,11 @@ namespace LegacyECommerce.Application.Services
 
         #region【 ===== 服 務 實 現 類 方 法 ===== 】
         ///【 分 頁 查 詢 】
-        async Task<PagedResult<CategoryResponse>> ICategoryService.QueryCategories(string searchKey, int pageNumber, int pageSize)
+        PagedResult<CategoryResponse> ICategoryService.QueryCategories(string searchKey, int pageNumber, int pageSize)
         {
             ///【分頁計算】
             // 計算記錄總數
-            var totalRecords = await _categoryRepository.GetAll().Count();
+            var totalRecords = _categoryRepository.GetAll().Count();
 
             // 計算起始頁
             var pageStart = 1;
@@ -49,7 +50,7 @@ namespace LegacyECommerce.Application.Services
             var offset = ((pageNumber - 1) * pageSize);
 
             ///【執行分頁】
-            var pagedItems = await _categoryRepository.GetAll()
+            var pagedItems = _categoryRepository.GetAll()
                 .Where(c => c.Name.Contains(searchKey))
                 .OrderByDescending(c => c.Name)
                 .Skip(offset)
@@ -72,77 +73,20 @@ namespace LegacyECommerce.Application.Services
         }
         #endregion
 
-        // BR2 查詢指定分類
-        //public CategoryResponse FindCategoryById(int id)
-        //{
-        //    using (var context = new MarketplaceDbContext())
-        //    {
-        //        var product = context.Categories
-        //            .Select(CategoryMapper.EntityToCategoryDto)
-        //            .FirstOrDefault(c => c.CategoryId == id);
-        //        return product;
-        //    }
-        //}
+        ///【 新 增 分 類 】
+        bool ICategoryService.CreateCategory(CreateCategoryRequest request)
+        {
+            ///【映射模型】
+            var entity = CategoryMapper.CreateToEntity(request);
 
-        //// BC1 新增數據庫分類
-        //public void AddCategory(CategoryRequest tableData)
-        //{
-        //    using (var context = new MarketplaceDbContext())
-        //    {
-        //        var categoryEntity = CategoryMapper.CategoryDtoToEntity(tableData);
-        //        bool isExist = context.Categories.Any(c => c.Name == categoryEntity.Name);
-
-        //        if (!isExist)
-        //        {
-        //            context.Categories.Add(categoryEntity);
-        //            context.SaveChanges();
-        //            return true;
-        //        }
-        //        else
-        //        {
-        //            return false;
-        //        }
-        //    }
-        //}
-
-        //// BU1 修改數據庫分類
-        //public void ModifyCategory(CategoryRequest tableData)
-        //{
-        //    using (var context = new MarketplaceDbContext())
-        //    {
-        //        var cartegoryEntity = CategoryMapper.CategoryDtoToEntity(tableData);
-        //        var isExist = context.Categories.Any(c => c.Id == tableData.CategoryId);
-
-        //        if (isExist)
-        //        {
-        //            context.Entry(cartegoryEntity).State = EntityState.Modified;
-        //            context.SaveChanges();
-        //            return true;
-        //        }
-        //        else
-        //        {
-        //            return false;
-        //        }
-        //    }
-        //}
-
-        /////【 BD1 刪除數據庫分類 】
-        //public void RemoveCategoryById(int id)
-        //{
-        //    using (var context = new MarketplaceDbContext())
-        //    {
-        //        var entity = context.Categories.Find(dtoId);
-        //        if (entity != null)
-        //        {
-        //            context.Entry(entity).State = EntityState.Deleted;
-        //            context.SaveChanges();
-        //            return true;
-        //        }
-        //        else
-        //        {
-        //            return false;
-        //        }
-        //    }
-        //}
+            ///【調用存取方法】
+            if (!_categoryRepository.IsDuplicateName(entity))
+            {
+                _categoryRepository.Add(entity);
+                _categoryRepository.Commit();
+                return true;
+            }
+            return false;
+        }
     }
 }

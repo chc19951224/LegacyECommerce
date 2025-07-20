@@ -4,7 +4,7 @@
 <!-- 網站標題和引用母版 -->
 @{
     //ViewBag.Title = "管 理 分 類 頁";
-    Layout = "~/Views/Backend/Partial/_Main.cshtml";
+    Layout = "~/Views/Backend/Shared/_Main.cshtml";
 }
 
 <!-- #region 【 Html 顯示區域 】 -->
@@ -39,7 +39,7 @@
     </button>
 
     <!-- 新增按鈕 -->
-    <a href=@Url.Action("CreateCategoryPage", "Backend") class="btn btn-add">
+    <a href=@Url.Action("CreateCategory", "Backend") class="btn btn-add">
         <i class="fa fa-plus">&nbsp;&nbsp;</i>新增分類
     </a>
 </div>
